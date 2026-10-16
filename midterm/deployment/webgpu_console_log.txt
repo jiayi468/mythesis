@@ -1,0 +1,25 @@
+验证日期：2026-10-16
+结果类型：部署兼容性诊断
+浏览器：Google Chrome 155.0.8059.41（headless=new）
+显示适配器：AMD Radeon(TM) Graphics
+驱动版本：27.20.11028.10001
+Execution Provider 配置：webgpu（未配置 WASM 回退）
+模型：clip_b16_patch_head_b1.onnx
+模型大小：344684645 bytes
+输入：Python 预处理固定 float32 [1,3,224,224]
+样本：dataset/pill/pill/test/good/002.png
+
+检查 WebGPU...
+WebGPU Session 创建成功；模型加载 5939.6 ms
+输入：image；输出：anomaly_map, image_score
+使用 Python 预处理的固定 float32 参考张量。
+异常分数：0.167000（页面当时显示 6 位小数）
+首次推理：8755.6 ms
+预热后 P50：3728.7 ms
+预热后 P95：3853.6 ms
+测试轮数：10
+
+ONNX Runtime CPU 同一张量参考分数：0.16699913144111633
+由显示精度可确认 WebGPU/ONNX CPU 分数绝对差小于 1.4e-6。
+
+结论：WebGPU B=1 真实前向成功，但当前时延很高，仅证明兼容性，不证明加速。

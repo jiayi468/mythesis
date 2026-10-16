@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CLIP Patch Baseline · WebGPU</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>CLIP Patch Baseline · WebGPU 验证</h1>
+    <p class="notice">仅用于源域开发与部署兼容性验证。页面只请求 WebGPU，不自动回退到 WASM。</p>
+    <section class="controls">
+      <button id="load">加载 WebGPU 模型</button>
+      <input id="image" type="file" accept="image/*" disabled>
+      <button id="run" disabled>运行推理</button>
+    </section>
+    <pre id="status">等待加载模型。</pre>
+    <section class="visuals">
+      <figure><canvas id="input" width="224" height="224"></canvas><figcaption>输入</figcaption></figure>
+      <figure><canvas id="heatmap" width="224" height="224"></canvas><figcaption>异常热力图</figcaption></figure>
+      <figure><canvas id="overlay" width="224" height="224"></canvas><figcaption>叠加</figcaption></figure>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.2/dist/ort.webgpu.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

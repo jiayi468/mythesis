@@ -1,0 +1,26 @@
+project_root: ../..
+dataset_roots:
+  - dataset/pill
+  - dataset/screw
+output_root: midterm
+seed: 42
+split:
+  abnormal_train_fraction: 0.7
+  max_train_normal_per_category: 16
+  max_train_abnormal_per_category: 16
+  max_val_normal_per_category: 8
+  max_val_abnormal_per_category: 8
+model:
+  name: ViT-B-16
+  pretrained: openai
+  input_size: 224
+  patch_grid: 14
+  hidden_dim: 256
+  dropout: 0.1
+training:
+  epochs: 30
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  patience: 6
+  focal_gamma: 2.0

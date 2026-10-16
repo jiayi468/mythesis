@@ -1,0 +1,29 @@
+# Local datasets and generated experiment artifacts
+dataset/
+midterm/experiments/feature_cache/
+midterm/experiments/checkpoints/
+midterm/experiments/logs/*
+!midterm/experiments/logs/training_history.csv
+midterm/deployment/*.onnx
+
+# Existing large/local models
+*.onnx
+*.pt
+*.pth
+*.npz
+*.bin
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+.tmp/
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,4 @@
+SUCCESS
+model=D:\postgraduate\thesis\demo\midterm\deployment\clip_b16_patch_head_b1.onnx
+input=image float32 [1,3,224,224]
+outputs=anomaly_map [1,14,14], image_score [1]

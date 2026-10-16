@@ -1,0 +1,2 @@
+condition,device,browser,model_load_ms,first_inference_ms,warm_p50_ms,warm_p95_ms,warm_runs,backend,input_source,image_score,result_type
+224_B1,AMD Radeon(TM) Graphics,Chrome 155.0.8059.41,5939.6,8755.6,3728.7,3853.6,10,webgpu,python_float32_reference,0.167000,部署兼容性诊断

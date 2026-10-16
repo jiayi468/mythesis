@@ -1,0 +1,13 @@
+{
+  "source_image": "dataset/pill/pill/test/good/002.png",
+  "tensor_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "tensor_dtype": "float32 little-endian",
+  "onnx_cpu_image_score": 0.16699913144111633,
+  "onnx_cpu_map_min": 0.13596266508102417,
+  "onnx_cpu_map_max": 0.19157674908638
+}
