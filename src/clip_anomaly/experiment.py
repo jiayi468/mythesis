@@ -18,14 +18,34 @@ from .preprocessing import downsample_mask, preprocess_image
 from .prompts import build_text_prototypes
 
 
+def build_run_matrix(training_seeds: list[int]) -> list[tuple[str, int | None]]:
+    return [
+        ("b0_raw_clip", None),
+        *(("b1_classifier", seed) for seed in training_seeds),
+        *(("b2_text_prototype", seed) for seed in training_seeds),
+    ]
+
+
+def supplement_output(output_root: str | Path, head_type: str, seed: int) -> Path:
+    return Path(output_root) / "experiments" / "supplement" / head_type / f"seed_{seed}"
+
+
+def experiment_root(config: ExperimentConfig) -> Path:
+    name = str(config.experiment.get("name", "")).strip()
+    if not name:
+        return config.output_root / "experiments"
+    return config.output_root / "experiments" / name
+
+
 def collect_selected_records(config: ExperimentConfig) -> list[SampleRecord]:
     records = []
     for root in config.dataset_roots:
         records.extend(scan_mvtec_category(root))
-    records = split_records(records, config.seed, float(config.split["abnormal_train_fraction"]))
+    split_seed = int(config.experiment.get("split_seed", config.seed))
+    records = split_records(records, split_seed, float(config.split["abnormal_train_fraction"]))
     return select_limited_records(
         records,
-        config.seed,
+        split_seed,
         int(config.split["max_train_normal_per_category"]),
         int(config.split["max_train_abnormal_per_category"]),
         int(config.split["max_val_normal_per_category"]),
@@ -47,7 +67,7 @@ def record_to_dict(record: SampleRecord, project_root: Path) -> dict[str, object
 
 
 def write_split_csv(records: list[SampleRecord], config: ExperimentConfig) -> Path:
-    output = config.output_root / "experiments" / "source_split.csv"
+    output = experiment_root(config) / "source_split.csv"
     output.parent.mkdir(parents=True, exist_ok=True)
     rows = [record_to_dict(record, config.project_root) for record in records]
     with output.open("w", newline="", encoding="utf-8-sig") as handle:
@@ -62,7 +82,7 @@ def write_environment_report(config: ExperimentConfig) -> Path:
     import onnxruntime
     import torchvision
 
-    output = config.output_root / "experiments" / "environment.md"
+    output = experiment_root(config) / "environment.md"
     output.parent.mkdir(parents=True, exist_ok=True)
     lines = [
         "# 实验环境审计",
@@ -85,14 +105,15 @@ def write_environment_report(config: ExperimentConfig) -> Path:
 
 
 def feature_cache(config: ExperimentConfig) -> FeatureCache:
+    supplement = bool(config.experiment.get("name"))
     metadata = FeatureCacheMetadata(
         str(config.model["name"]),
         str(config.model["pretrained"]),
         int(config.model["input_size"]),
         int(config.model["patch_grid"]),
-        "clip-rgb-bicubic-maxpool-mask-v1",
+        "clip-rgb-bicubic-maxpool-mask-v2-projected" if supplement else "clip-rgb-bicubic-maxpool-mask-v1",
     )
-    path = config.output_root / "experiments" / "feature_cache" / "midterm_cpu_features.pt"
+    path = experiment_root(config) / "feature_cache" / "midterm_cpu_features.pt"
     return FeatureCache(path, metadata)
 
 
@@ -114,6 +135,7 @@ def build_feature_cache(config: ExperimentConfig, batch_size: int = 4) -> Path:
     patch_masks: list[torch.Tensor] = []
     full_masks: list[torch.Tensor] = []
     features: list[torch.Tensor] = []
+    projected_features: list[torch.Tensor] = []
     size = int(config.model["input_size"])
     grid = int(config.model["patch_grid"])
     for start in range(0, len(records), batch_size):
@@ -125,10 +147,13 @@ def build_feature_cache(config: ExperimentConfig, batch_size: int = 4) -> Path:
             full_mask = _load_mask(record, size)
             full_masks.append(torch.from_numpy(full_mask))
             patch_masks.append(downsample_mask(full_mask, grid))
-        features.append(backbone(torch.stack(images)).half().cpu())
+        batch_features = backbone(torch.stack(images))
+        features.append(batch_features.half().cpu())
+        projected_features.append(backbone.project_tokens(batch_features).half().cpu())
         print(f"cached {min(start + batch_size, len(records))}/{len(records)}", flush=True)
     payload = {
         "features": torch.cat(features),
+        "projected_features": torch.cat(projected_features),
         "masks": torch.stack(patch_masks),
         "full_masks": torch.stack(full_masks),
         "labels": torch.tensor([record.label for record in records], dtype=torch.long),

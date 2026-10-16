@@ -1,0 +1,4 @@
+﻿comparison,max_abs_error,mean_abs_error,score_abs_error,threshold,passed
+python_vs_canvas_input,0.0995403528213501,0.0060283913193645,,0.001,False
+python_vs_canvas_onnx_cpu_score,,,0.018327057361602783,0.001,False
+onnx_cpu_vs_webgpu_fixed_score,,,8.685588836765401e-07,0.0001,True

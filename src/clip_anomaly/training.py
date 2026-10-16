@@ -10,7 +10,7 @@ import torch
 from torch.utils.data import DataLoader, TensorDataset
 
 from .losses import DiceLoss, FocalLoss
-from .model import PatchAnomalyHead
+from .model import LearnedPrototypePatchHead, PatchAnomalyHead
 
 
 @dataclass(frozen=True)
@@ -46,19 +46,30 @@ def train_head(
     patience: int,
     gamma: float,
     seed: int,
+    head_type: str = "b2_text_prototype",
 ) -> TrainingResult:
     set_seed(seed)
     train_idx = torch.tensor([index for index, split in enumerate(splits) if split == "train"])
     val_idx = torch.tensor([index for index, split in enumerate(splits) if split == "val"])
     if train_idx.numel() == 0 or val_idx.numel() == 0:
         raise ValueError("Feature cache must contain both train and val records")
-    model = PatchAnomalyHead(
-        input_dim=features.shape[-1],
-        embedding_dim=prototypes.shape[-1],
-        hidden_dim=hidden_dim,
-        prototypes=prototypes,
-        dropout=dropout,
-    )
+    if head_type == "b2_text_prototype":
+        model = PatchAnomalyHead(
+            input_dim=features.shape[-1],
+            embedding_dim=prototypes.shape[-1],
+            hidden_dim=hidden_dim,
+            prototypes=prototypes,
+            dropout=dropout,
+        )
+    elif head_type == "b1_classifier":
+        model = LearnedPrototypePatchHead(
+            input_dim=features.shape[-1],
+            embedding_dim=prototypes.shape[-1],
+            hidden_dim=hidden_dim,
+            dropout=dropout,
+        )
+    else:
+        raise ValueError(f"Unsupported trainable head type: {head_type}")
     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     generator = torch.Generator().manual_seed(seed)
     loader = DataLoader(
@@ -105,6 +116,8 @@ def train_head(
                     "dropout": dropout,
                     "best_epoch": best_epoch,
                     "best_val_loss": best_loss,
+                    "head_type": head_type,
+                    "trainable_parameters": sum(parameter.numel() for parameter in model.parameters()),
                 },
                 checkpoint_path,
             )
@@ -119,15 +132,21 @@ def train_head(
     return TrainingResult(best_epoch, best_loss, checkpoint_path, history_path)
 
 
-def load_trained_head(checkpoint_path: str | Path, prototypes: torch.Tensor) -> PatchAnomalyHead:
+def load_trained_head(checkpoint_path: str | Path, prototypes: torch.Tensor) -> torch.nn.Module:
     checkpoint = torch.load(Path(checkpoint_path), map_location="cpu")
-    model = PatchAnomalyHead(
-        checkpoint["input_dim"],
-        checkpoint["embedding_dim"],
-        checkpoint["hidden_dim"],
-        prototypes,
-        checkpoint["dropout"],
-    )
+    head_type = checkpoint.get("head_type", "b2_text_prototype")
+    if head_type == "b2_text_prototype":
+        model = PatchAnomalyHead(
+            checkpoint["input_dim"], checkpoint["embedding_dim"], checkpoint["hidden_dim"],
+            prototypes, checkpoint["dropout"],
+        )
+    elif head_type == "b1_classifier":
+        model = LearnedPrototypePatchHead(
+            checkpoint["input_dim"], checkpoint["embedding_dim"], checkpoint["hidden_dim"],
+            checkpoint["dropout"],
+        )
+    else:
+        raise ValueError(f"Unsupported checkpoint head type: {head_type}")
     model.load_state_dict(checkpoint["model_state"])
     model.eval()
     return model

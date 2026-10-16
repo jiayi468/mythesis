@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>CLIP + WebGPU 浏览器端向量检索示例</title>
+<style>
+  body { font-family: sans-serif; margin: 2em; background: #fafafa; }
+  canvas { border: 1px solid #ccc; margin-top: 1em; }
+  #results img { width: 100px; margin: 5px; border-radius: 6px; }
+</style>
+</head>
+<body>
+<h2>CLIP + WebGPU 浏览器端检索演示</h2>
+
+<p>选择若干张图片（示例库）：</p>
+<input type="file" id="imageInput" multiple accept="image/*">
+<div id="preview"></div>
+
+<p>输入要检索的文本（例如：<i>有裂纹的金属表面</i>）：</p>
+<input id="queryText" style="width:300px;">
+<button id="searchBtn">开始检索</button>
+
+<h3>Top-3 检索结果</h3>
+<div id="results"></div>
+
+<canvas id="canvas" width="224" height="224" hidden></canvas>
+
+<script type="module">
+import * as ort from "https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js";
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const imgInput = document.getElementById("imageInput");
+const preview = document.getElementById("preview");
+const results = document.getElementById("results");
+
+let session;
+let imageDB = [];      // 存储图片对象
+let dbEmbeddings = []; // 存储图片向量
+
+// 1️⃣ 初始化 CLIP 模型
+async function initModel() {
+  session = await ort.InferenceSession.create("clip-vitb32.onnx", {
+    executionProviders: ["webgpu"],
+  });
+  console.log("✅ CLIP 模型已加载（WebGPU）");
+}
+await initModel();
+
+// 2️⃣ 加载图片并提取特征
+imgInput.addEventListener("change", async (e) => {
+  const files = [...e.target.files];
+  preview.innerHTML = "";
+  dbEmbeddings = [];
+  imageDB = [];
+
+  for (const file of files) {
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+    img.width = 100;
+    preview.appendChild(img);
+    await new Promise((r) => (img.onload = r));
+
+    const emb = await getImageEmbedding(img);
+    dbEmbeddings.push(emb);
+    imageDB.push(img);
+  }
+  console.log(`📦 已加载 ${files.length} 张图片`);
+});
+
+// 图像 embedding
+async function getImageEmbedding(img) {
+  ctx.drawImage(img, 0, 0, 224, 224);
+  const imgData = ctx.getImageData(0, 0, 224, 224);
+  const floatArray = new Float32Array(3 * 224 * 224);
+  for (let i = 0; i < 224 * 224; i++) {
+    floatArray[i] = imgData.data[i * 4] / 255;
+    floatArray[i + 224 * 224] = imgData.data[i * 4 + 1] / 255;
+    floatArray[i + 2 * 224 * 224] = imgData.data[i * 4 + 2] / 255;
+  }
+  const tensor = new ort.Tensor("float32", floatArray, [1, 3, 224, 224]);
+  const out = await session.run({ "input_image": tensor });
+  return out["image_embeds"].data;
+}
+
+// 简化文本 embedding（示例：用随机向量代替）
+async function getTextEmbedding(text) {
+  // 实际应使用 tokenizer + text encoder 模型
+  const dummy = new Float32Array(dbEmbeddings[0].length);
+  let seed = 0;
+  for (let i = 0; i < text.length; i++) seed += text.charCodeAt(i);
+  for (let i = 0; i < dummy.length; i++) dummy[i] = Math.sin(seed * (i + 1));
+  return dummy;
+}
+
+// 3️⃣ 检索按钮逻辑
+document.getElementById("searchBtn").addEventListener("click", async () => {
+  const text = document.getElementById("queryText").value.trim();
+  if (!text) return alert("请输入检索文本");
+  if (dbEmbeddings.length === 0) return alert("请先加载图片！");
+
+  const queryEmb = await getTextEmbedding(text);
+  const sims = await cosineSimilarityWebGPU(queryEmb, dbEmbeddings);
+  const top3 = topK(sims, 3);
+  results.innerHTML = "";
+  top3.forEach(({ idx, sim }) => {
+    const img = imageDB[idx].cloneNode();
+    img.title = `相似度：${sim.toFixed(3)}`;
+    results.appendChild(img);
+  });
+});
+
+// 4️⃣ WebGPU 计算相似度（矩阵乘法）
+async function cosineSimilarityWebGPU(query, dbEmbeddings) {
+  const flatDB = Float32Array.from(dbEmbeddings.flat());
+  const dim = query.length;
+  const n = dbEmbeddings.length;
+
+  const adapter = await navigator.gpu.requestAdapter();
+  const device = await adapter.requestDevice();
+
+  const queryBuffer = device.createBuffer({
+    size: query.byteLength,
+    usage: GPUBufferUsage.STORAGE,
+    mappedAtCreation: true,
+  });
+  new Float32Array(queryBuffer.getMappedRange()).set(query);
+  queryBuffer.unmap();
+
+  const dbBuffer = device.createBuffer({
+    size: flatDB.byteLength,
+    usage: GPUBufferUsage.STORAGE,
+    mappedAtCreation: true,
+  });
+  new Float32Array(dbBuffer.getMappedRange()).set(flatDB);
+  dbBuffer.unmap();
+
+  const resultBuffer = device.createBuffer({
+    size: Float32Array.BYTES_PER_ELEMENT * n,
+    usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_SRC,
+  });
+
+  const shaderCode = `
+    @group(0) @binding(0) var<storage, read> query: array<f32>;
+    @group(0) @binding(1) var<storage, read> db: array<f32>;
+    @group(0) @binding(2) var<storage, read_write> out: array<f32>;
+    @compute @workgroup_size(64)
+    fn main(@builtin(global_invocation_id) id: vec3<u32>) {
+      let idx = id.x;
+      if (idx >= ${n}u) { return; }
+      var sum: f32 = 0.0;
+      for (var i: u32 = 0u; i < ${dim}u; i = i + 1u) {
+        sum += query[i] * db[idx * ${dim}u + i];
+      }
+      out[idx] = sum;
+    }`;
+
+  const module = device.createShaderModule({ code: shaderCode });
+  const pipeline = device.createComputePipeline({
+    layout: "auto",
+    compute: { module, entryPoint: "main" },
+  });
+  const bindGroup = device.createBindGroup({
+    layout: pipeline.getBindGroupLayout(0),
+    entries: [
+      { binding: 0, resource: { buffer: queryBuffer } },
+      { binding: 1, resource: { buffer: dbBuffer } },
+      { binding: 2, resource: { buffer: resultBuffer } },
+    ],
+  });
+
+  const commandEncoder = device.createCommandEncoder();
+  const pass = commandEncoder.beginComputePass();
+  pass.setPipeline(pipeline);
+  pass.setBindGroup(0, bindGroup);
+  pass.dispatchWorkgroups(Math.ceil(n / 64));
+  pass.end();
+  device.queue.submit([commandEncoder.finish()]);
+
+  const readBuffer = device.createBuffer({
+    size: resultBuffer.size,
+    usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ,
+  });
+  const copyEncoder = device.createCommandEncoder();
+  copyEncoder.copyBufferToBuffer(resultBuffer, 0, readBuffer, 0, resultBuffer.size);
+  device.queue.submit([copyEncoder.finish()]);
+  await readBuffer.mapAsync(GPUMapMode.READ);
+  const res = new Float32Array(readBuffer.getMappedRange());
+  return res;
+}
+
+function topK(arr, k) {
+  return [...arr.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, k)
+    .map(([idx, sim]) => ({ idx, sim }));
+}
+</script>
+</body>
+</html>

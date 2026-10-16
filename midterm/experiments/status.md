@@ -17,6 +17,17 @@
 | Oracle ROI | 未开展 | 不属于本轮最低线 |
 | PPT/讲稿 | 未开展 | 本轮任务聚焦实验代码与证据，待根据真实结果制作 |
 
+## 补充实验状态（2026-10-16）
+
+| 项目 | 状态 | 证据与说明 |
+|---|---|---|
+| 扩展数据协议 | 已完成 | `supplement/source_split.csv`；314 张，训练/验证交集为 0 |
+| B0/B1/B2 公平基线 | 已完成 | `supplement/baselines/runs.csv`、`summary.csv`；B1/B2 各 3 个训练种子 |
+| 图像分数聚合诊断 | 已完成 | `supplement/score_aggregation.csv`；max 在当前验证集更好，但不作为无偏选择 |
+| Oracle ROI | 已完成 | `supplement/oracle_roi/`；决策为 GO，合并逐图 Pixel AP 平均增量 0.043036 |
+| 浏览器预处理一致性 | 验证失败 | 固定张量后端误差 8.69e-7；Canvas/Python 分数误差 0.018327 |
+| 补充实验报告 | 已完成 | `midterm/report/补充实验验证报告.md` |
+
 ## 当前结果摘要
 
 | 范围 | 样本数 | Image AUROC | Image AP | Pixel AUROC | Pixel AP |

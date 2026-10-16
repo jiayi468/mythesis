@@ -10,6 +10,7 @@ const overlayCanvas = document.querySelector("#overlay");
 let session;
 let loadedImage;
 let referenceTensor;
+let inputCaptureSent = false;
 
 function log(message) {
   statusNode.textContent += `\n${message}`;
@@ -69,6 +70,16 @@ function inputTensor() {
     chw[i] = (pixels[4 * i] / 255 - MEAN[0]) / STD[0];
     chw[224 * 224 + i] = (pixels[4 * i + 1] / 255 - MEAN[1]) / STD[1];
     chw[2 * 224 * 224 + i] = (pixels[4 * i + 2] / 255 - MEAN[2]) / STD[2];
+  }
+  const capturePath = new URLSearchParams(location.search).get("capture");
+  if (capturePath && !inputCaptureSent) {
+    inputCaptureSent = true;
+    fetch(capturePath, { method: "POST", body: chw.buffer })
+      .then(response => {
+        if (!response.ok) throw new Error(`输入张量导出失败：HTTP ${response.status}`);
+        log("浏览器 Canvas 输入张量已导出。");
+      })
+      .catch(error => log(`输入张量导出失败：${error}`));
   }
   return new ort.Tensor("float32", chw, [1, 3, 224, 224]);
 }

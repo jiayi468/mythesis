@@ -16,6 +16,7 @@ class ExperimentConfig:
     split: dict[str, Any]
     model: dict[str, Any]
     training: dict[str, Any]
+    experiment: dict[str, Any]
 
 
 def load_config(path: str | Path) -> ExperimentConfig:
@@ -41,4 +42,5 @@ def load_config(path: str | Path) -> ExperimentConfig:
         split=dict(raw["split"]),
         model=dict(raw["model"]),
         training=dict(raw.get("training", {})),
+        experiment=dict(raw.get("experiment", {})),
     )

@@ -4,6 +4,14 @@ import torch
 from torch import nn
 
 
+def project_patch_tokens(tokens: torch.Tensor, projection: torch.Tensor | nn.Module) -> torch.Tensor:
+    if tokens.ndim != 3:
+        raise ValueError("tokens must have shape [B,N,D]")
+    if isinstance(projection, torch.Tensor):
+        return tokens @ projection
+    return projection(tokens)
+
+
 class FrozenClipBackbone(nn.Module):
     def __init__(self, clip_model: nn.Module) -> None:
         super().__init__()
@@ -22,6 +30,13 @@ class FrozenClipBackbone(nn.Module):
         if tokens.ndim != 3 or tokens.shape[1] != 196:
             raise RuntimeError(f"Expected [B,196,D] Patch tokens, got {tuple(tokens.shape)}")
         return tokens.float()
+
+    @torch.no_grad()
+    def project_tokens(self, tokens: torch.Tensor) -> torch.Tensor:
+        projection = getattr(self.visual, "proj", None)
+        if projection is None:
+            raise RuntimeError("OpenCLIP visual encoder does not expose a Patch projection")
+        return project_patch_tokens(tokens, projection).float()
 
 
 def load_openclip(model_name: str = "ViT-B-16", pretrained: str = "openai", device: str = "cpu"):
