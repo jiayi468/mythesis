@@ -1,0 +1,42 @@
+project_root: ..
+dataset_roots:
+  - dataset/pill
+  - dataset/screw
+output_root: midterm/experiments/decisive_path
+seed: 42
+split:
+  abnormal_train_fraction: 0.6
+  dev_fraction: 0.2
+model:
+  name: ViT-B-16
+  pretrained: openai
+  input_size: 224
+  patch_grid: 14
+  hidden_dim: 256
+  dropout: 0.1
+training:
+  epochs: 30
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  patience: 6
+  focal_gamma: 2.0
+experiment:
+  name: decisive_path
+  training_seeds: [42, 123, 2026]
+  bootstrap_samples: 2000
+  score_aggregation: quantile_0_995
+  candidate:
+    method: peak_nms
+    window_fraction: 0.35
+    nms_iou: 0.3
+    max_area_fraction: 0.4
+    min_instance_coverage: 0.5
+    tiny_mask_area_ratio_max: 0.001
+    small_mask_area_ratio_max: 0.01
+  k_values: [1, 2]
+  random_seeds: [11, 23, 37, 41, 53, 67, 79, 83, 97, 101, 113, 127, 139, 149, 163, 173, 181, 193, 197, 211]
+  e4_random_seed: 11
+  browser:
+    warmup_runs: 5
+    measured_runs: 30

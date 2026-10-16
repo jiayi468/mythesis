@@ -1,0 +1,19 @@
+{
+  "sample_id": "06_screw_good_040",
+  "image_path": "dataset/screw/screw/test/good/040.png",
+  "decoded_shape": [
+    1024,
+    1024,
+    4
+  ],
+  "resized_shape": [
+    224,
+    224,
+    3
+  ],
+  "normalized_shape": [
+    3,
+    224,
+    224
+  ]
+}

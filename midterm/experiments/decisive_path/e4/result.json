@@ -1,0 +1,32 @@
+{
+  "status": "FAIL",
+  "criteria": {
+    "recommended_k_is_1": true,
+    "auto_pixel_ap_gain_ge_0.02": false,
+    "auto_oracle_fraction_ge_0.40": false,
+    "auto_fpr_increase_le_0.02": false
+  },
+  "observed": {
+    "recommended_k": 1,
+    "auto_pixel_ap_gain": 0.00632224795625369,
+    "oracle_pixel_ap_gain": 0.12235894371694456,
+    "auto_oracle_fraction": 0.051669683998572885,
+    "auto_fpr_increase": 0.05882352941176471,
+    "browser_cost_status": "INCOMPLETE"
+  },
+  "artifact_paths": [
+    "midterm/experiments/decisive_path/e4/source_holdout/metrics.csv",
+    "midterm/experiments/decisive_path/e4/source_holdout/per_image.csv"
+  ],
+  "protocol_hash": "bdbb0a7ba826ccc4df20c9b29ab70b607c8a05e42718a046c26a9c8abbe9ccb1",
+  "git_commit": "working-tree",
+  "started_at": "2026-10-16",
+  "completed_at": "2026-10-16T21:31:54.453598+08:00",
+  "planned": 3,
+  "succeeded": 3,
+  "failed": 0,
+  "skipped": 0,
+  "failure_reasons": [
+    "ROI K=1/2 browser benchmark not implemented in current page; no deployment cost claim"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "sample_id": "00_pill_good_001",
+  "image_path": "dataset/pill/pill/test/good/001.png",
+  "decoded_shape": [
+    800,
+    800,
+    4
+  ],
+  "resized_shape": [
+    224,
+    224,
+    3
+  ],
+  "normalized_shape": [
+    3,
+    224,
+    224
+  ]
+}

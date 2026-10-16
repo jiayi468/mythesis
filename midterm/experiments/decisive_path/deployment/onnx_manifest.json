@@ -1,0 +1,11 @@
+{
+  "seed": 42,
+  "path": "midterm/experiments/decisive_path/deployment/clip_b16_patch_head_b1_seed_42.onnx",
+  "sha256": "5f89a4670bb4960cb5cce9a8930f6c8382213a567b0d8ec75bdeb37904747f29",
+  "checkpoint_sha256": "276e2ad309158fc5f98044a212ebcd3b65e06640fa3c97ddf8df9d8c3fb8fd75",
+  "input": "image float32 [1,3,224,224]",
+  "outputs": [
+    "anomaly_map float32 [1,14,14]",
+    "image_score float32 [1]"
+  ]
+}

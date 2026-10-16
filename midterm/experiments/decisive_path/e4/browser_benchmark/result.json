@@ -1,0 +1,24 @@
+{
+  "status": "INCOMPLETE",
+  "criteria": {
+    "webgpu_k_0_1_2_measured": false,
+    "wasm_k_0_and_recommended_k_measured": false
+  },
+  "observed": {
+    "reason": "当前 web/app.js 只有 Full 单图推理采集接口，尚未实现浏览器端 ROI crop/upload/fusion 的 K=1/2 管线；E1 固定张量后端计时不代表 E4 ROI 成本。"
+  },
+  "artifact_paths": [
+    "midterm/experiments/decisive_path/e1/capture_summary.json"
+  ],
+  "protocol_hash": "bdbb0a7ba826ccc4df20c9b29ab70b607c8a05e42718a046c26a9c8abbe9ccb1",
+  "git_commit": "working-tree",
+  "started_at": "2026-10-16T21:32:00+08:00",
+  "completed_at": "2026-10-16T21:32:00+08:00",
+  "planned": 3,
+  "succeeded": 0,
+  "failed": 0,
+  "skipped": 3,
+  "failure_reasons": [
+    "ROI 浏览器管线尚未实现，未运行或猜测 K=1/2 成本"
+  ]
+}

@@ -1,6 +1,6 @@
 import numpy as np
 
-from scripts.compare_browser_preprocessing import compare_tensors
+from clip_anomaly.decisive import compare_arrays as compare_tensors
 
 
 def test_compare_tensors_reports_max_and_mean_absolute_error() -> None:

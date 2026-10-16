@@ -1,0 +1,122 @@
+[
+  {
+    "category": "pill",
+    "defect_type": "good",
+    "image_path": "dataset/pill/pill/test/good/001.png",
+    "image_sha256": "86a3d3f5f413957074ddb24271f7b6d0430f8228164dd15aa74b6c9a275b6061",
+    "mask_path": null,
+    "mask_sha256": null,
+    "label": 0,
+    "source_partition": "test",
+    "split": "dev",
+    "mask_area_ratio": 0.0
+  },
+  {
+    "category": "pill",
+    "defect_type": "good",
+    "image_path": "dataset/pill/pill/test/good/025.png",
+    "image_sha256": "25db227a28902928e16eb500aee9d0fd6517bd71edb236e144d8a70d9d467f9b",
+    "mask_path": null,
+    "mask_sha256": null,
+    "label": 0,
+    "source_partition": "test",
+    "split": "dev",
+    "mask_area_ratio": 0.0
+  },
+  {
+    "category": "pill",
+    "defect_type": "color",
+    "image_path": "dataset/pill/pill/test/color/013.png",
+    "image_sha256": "3c262260dcc2af53b3b6338f561de45319bfde0e7fb397e0af6986f4e8c232ab",
+    "mask_path": "dataset/pill/pill/ground_truth/color/013_mask.png",
+    "mask_sha256": "5499d9660195fda98c7b6f4747ba0ad5b84ba04c2bd820602c2653e308be2b3c",
+    "label": 1,
+    "source_partition": "test",
+    "split": "dev",
+    "mask_area_ratio": 0.0008609375
+  },
+  {
+    "category": "pill",
+    "defect_type": "crack",
+    "image_path": "dataset/pill/pill/test/crack/023.png",
+    "image_sha256": "c6dc4a4652b742d9a6af55b3b47b4214127156864e85ec10f8954ad565c46c27",
+    "mask_path": "dataset/pill/pill/ground_truth/crack/023_mask.png",
+    "mask_sha256": "37e57e8cf05d9a4d431d7b4d2e6f4d35f59aba221dc595e854e6fecc4db2f471",
+    "label": 1,
+    "source_partition": "test",
+    "split": "dev",
+    "mask_area_ratio": 0.0131578125
+  },
+  {
+    "category": "pill",
+    "defect_type": "pill_type",
+    "image_path": "dataset/pill/pill/test/pill_type/004.png",
+    "image_sha256": "9f0b260d87ec3a14580888c0b247de88f91e275e21a750e4d66bf38a44e74c12",
+    "mask_path": "dataset/pill/pill/ground_truth/pill_type/004_mask.png",
+    "mask_sha256": "f0ec7217cf057e743151cf04cc08b47135139d05e59e60b2e3e5f3e7c0c33d98",
+    "label": 1,
+    "source_partition": "test",
+    "split": "dev",
+    "mask_area_ratio": 0.40915
+  },
+  {
+    "category": "screw",
+    "defect_type": "good",
+    "image_path": "dataset/screw/screw/test/good/000.png",
+    "image_sha256": "805be6dc5dc41dfc85869aec67b4a9e4141bd88b85b352c978355bc807e93159",
+    "mask_path": null,
+    "mask_sha256": null,
+    "label": 0,
+    "source_partition": "test",
+    "split": "dev",
+    "mask_area_ratio": 0.0
+  },
+  {
+    "category": "screw",
+    "defect_type": "good",
+    "image_path": "dataset/screw/screw/test/good/040.png",
+    "image_sha256": "c1cad20517fa3a4c3ca5e0a542706ca2aaa224e35e5749992f427d7b53632a41",
+    "mask_path": null,
+    "mask_sha256": null,
+    "label": 0,
+    "source_partition": "test",
+    "split": "dev",
+    "mask_area_ratio": 0.0
+  },
+  {
+    "category": "screw",
+    "defect_type": "scratch_neck",
+    "image_path": "dataset/screw/screw/test/scratch_neck/022.png",
+    "image_sha256": "1cc4d5c11c00d251f4a24e6def04555e7dcd4837c90f55b305908166659dd5c3",
+    "mask_path": "dataset/screw/screw/ground_truth/scratch_neck/022_mask.png",
+    "mask_sha256": "18ec4986d6f7108c922537a390e8258ac3c53ac6f3a19f6f5b1ac6991963903c",
+    "label": 1,
+    "source_partition": "test",
+    "split": "dev",
+    "mask_area_ratio": 0.0009851455688476562
+  },
+  {
+    "category": "screw",
+    "defect_type": "scratch_neck",
+    "image_path": "dataset/screw/screw/test/scratch_neck/021.png",
+    "image_sha256": "5038f6584a48f5cf9ecea05c4b41e93273a36aac684d495ea3c5617c1945aac1",
+    "mask_path": "dataset/screw/screw/ground_truth/scratch_neck/021_mask.png",
+    "mask_sha256": "cf4f8d591315f08c6132e4a56b98528ac1bf09fdbd785c74ba3a9a1eaebb3afc",
+    "label": 1,
+    "source_partition": "test",
+    "split": "dev",
+    "mask_area_ratio": 0.0025625228881835938
+  },
+  {
+    "category": "screw",
+    "defect_type": "thread_top",
+    "image_path": "dataset/screw/screw/test/thread_top/005.png",
+    "image_sha256": "c3c3badeadb667d6a46cb74a3336b03dca85772671ecf8b4ebbc6d2dfc21a4e7",
+    "mask_path": "dataset/screw/screw/ground_truth/thread_top/005_mask.png",
+    "mask_sha256": "4b706621f5862e6ec631fa826f5028235ef5b33f854ae9be6ce5a9d6e8a81e90",
+    "label": 1,
+    "source_partition": "test",
+    "split": "dev",
+    "mask_area_ratio": 0.010107994079589844
+  }
+]

@@ -1,0 +1,61 @@
+{
+  "sample_id": "08_screw_scratch_neck_021",
+  "image_path": "dataset/screw/screw/test/scratch_neck/021.png",
+  "backend": "wasm",
+  "mode": "fixed",
+  "received": [
+    "anomaly_map",
+    "decoded_rgba",
+    "image_score",
+    "normalized_chw",
+    "resized_rgb",
+    "timings"
+  ],
+  "missing": [],
+  "metadata": {
+    "decoded_rgba": {
+      "bytes": 4194304,
+      "width": "1024",
+      "height": "1024",
+      "dtype": "uint8",
+      "sample_id": "08_screw_scratch_neck_021"
+    },
+    "resized_rgb": {
+      "bytes": 150528,
+      "width": "224",
+      "height": "224",
+      "dtype": "uint8",
+      "sample_id": "08_screw_scratch_neck_021"
+    },
+    "normalized_chw": {
+      "bytes": 602112,
+      "width": "224",
+      "height": "224",
+      "dtype": "float32",
+      "sample_id": "08_screw_scratch_neck_021"
+    },
+    "anomaly_map": {
+      "bytes": 784,
+      "width": "14",
+      "height": "14",
+      "dtype": "float32",
+      "sample_id": "08_screw_scratch_neck_021"
+    },
+    "image_score": {
+      "bytes": 4,
+      "width": null,
+      "height": null,
+      "dtype": "float32",
+      "sample_id": "08_screw_scratch_neck_021"
+    },
+    "timings": {
+      "bytes": 37,
+      "width": null,
+      "height": null,
+      "dtype": "json",
+      "sample_id": "08_screw_scratch_neck_021"
+    }
+  },
+  "errors": [],
+  "success": true
+}

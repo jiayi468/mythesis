@@ -1,4 +1,6 @@
-const MODEL_PATH = "/midterm/deployment/clip_b16_patch_head_b1.onnx";
+const PARAMETERS = new URLSearchParams(location.search);
+const MODEL_PATH = PARAMETERS.get("model") || "/midterm/deployment/clip_b16_patch_head_b1.onnx";
+const BACKEND = PARAMETERS.get("backend") || "webgpu";
 const MEAN = [0.48145466, 0.4578275, 0.40821073];
 const STD = [0.26862954, 0.26130258, 0.27577711];
 const statusNode = document.querySelector("#status");
@@ -12,26 +14,43 @@ let loadedImage;
 let referenceTensor;
 let inputCaptureSent = false;
 
+async function capture(stage, body, metadata = {}) {
+  const capturePath = PARAMETERS.get("capture");
+  if (!capturePath) return;
+  const url = new URL(capturePath, location.href);
+  url.searchParams.set("stage", stage);
+  const headers = { "X-Sample-Id": PARAMETERS.get("sampleId") || "unknown" };
+  for (const [key, value] of Object.entries(metadata)) headers[`X-${key}`] = String(value);
+  const response = await fetch(url, { method: "POST", headers, body });
+  if (!response.ok) throw new Error(`采集 ${stage} 失败：HTTP ${response.status}`);
+}
+
+async function reportError(error) {
+  try { await capture("error", new TextEncoder().encode(String(error?.stack || error))); } catch (_) {}
+}
+
 function log(message) {
   statusNode.textContent += `\n${message}`;
 }
 
 document.querySelector("#load").addEventListener("click", async () => {
   statusNode.textContent = "检查 WebGPU...";
-  if (!navigator.gpu) throw new Error("navigator.gpu 不可用；未创建 WASM 回退会话。 ");
-  const adapter = await navigator.gpu.requestAdapter();
-  if (!adapter) throw new Error("浏览器未返回 WebGPU adapter。");
+  if (BACKEND === "webgpu") {
+    if (!navigator.gpu) throw new Error("navigator.gpu 不可用；未创建 WASM 回退会话。 ");
+    const adapter = await navigator.gpu.requestAdapter();
+    if (!adapter) throw new Error("浏览器未返回 WebGPU adapter。");
+  }
   const started = performance.now();
   try {
     session = await ort.InferenceSession.create(MODEL_PATH, {
-      executionProviders: ["webgpu"],
+      executionProviders: [BACKEND],
       graphOptimizationLevel: "all",
     });
   } catch (error) {
     log(`WebGPU Session 创建失败：${error.stack || error}`);
     throw error;
   }
-  log(`WebGPU Session 创建成功；模型加载 ${(performance.now() - started).toFixed(1)} ms`);
+  log(`${BACKEND} Session 创建成功；模型加载 ${(performance.now() - started).toFixed(1)} ms`);
   log(`输入：${session.inputNames.join(", ")}；输出：${session.outputNames.join(", ")}`);
   imageInput.disabled = false;
   const samplePath = new URLSearchParams(location.search).get("sample");
@@ -48,7 +67,22 @@ document.querySelector("#load").addEventListener("click", async () => {
     const response = await fetch(samplePath);
     if (!response.ok) throw new Error(`自动样本加载失败：HTTP ${response.status}`);
     loadedImage = await createImageBitmap(await response.blob());
+    if (PARAMETERS.get("captureMode") === "full") {
+      const decoded = new OffscreenCanvas(loadedImage.width, loadedImage.height);
+      const decodedContext = decoded.getContext("2d");
+      decodedContext.drawImage(loadedImage, 0, 0);
+      const rgba = decodedContext.getImageData(0, 0, loadedImage.width, loadedImage.height).data;
+      await capture("decoded_rgba", rgba.buffer, { Width: loadedImage.width, Height: loadedImage.height, Dtype: "uint8" });
+    }
     inputCanvas.getContext("2d").drawImage(loadedImage, 0, 0, 224, 224);
+    if (PARAMETERS.get("captureMode") === "full") {
+      const rgba = inputCanvas.getContext("2d").getImageData(0, 0, 224, 224).data;
+      const rgb = new Uint8Array(3 * 224 * 224);
+      for (let i = 0; i < 224 * 224; i += 1) {
+        rgb[3 * i] = rgba[4 * i]; rgb[3 * i + 1] = rgba[4 * i + 1]; rgb[3 * i + 2] = rgba[4 * i + 2];
+      }
+      await capture("resized_rgb", rgb.buffer, { Width: 224, Height: 224, Dtype: "uint8" });
+    }
     runButton.disabled = false;
     runButton.click();
   }
@@ -63,7 +97,14 @@ imageInput.addEventListener("change", async () => {
 });
 
 function inputTensor() {
-  if (referenceTensor) return referenceTensor;
+  if (referenceTensor) {
+    if (PARAMETERS.get("captureMode") === "full" && !inputCaptureSent) {
+      inputCaptureSent = true;
+      capture("normalized_chw", referenceTensor.data.buffer, { Width: 224, Height: 224, Dtype: "float32" })
+        .catch(error => log(`输入张量导出失败：${error}`));
+    }
+    return referenceTensor;
+  }
   const pixels = inputCanvas.getContext("2d").getImageData(0, 0, 224, 224).data;
   const chw = new Float32Array(3 * 224 * 224);
   for (let i = 0; i < 224 * 224; i += 1) {
@@ -71,12 +112,15 @@ function inputTensor() {
     chw[224 * 224 + i] = (pixels[4 * i + 1] / 255 - MEAN[1]) / STD[1];
     chw[2 * 224 * 224 + i] = (pixels[4 * i + 2] / 255 - MEAN[2]) / STD[2];
   }
-  const capturePath = new URLSearchParams(location.search).get("capture");
+  const capturePath = PARAMETERS.get("capture");
   if (capturePath && !inputCaptureSent) {
     inputCaptureSent = true;
-    fetch(capturePath, { method: "POST", body: chw.buffer })
+    const request = PARAMETERS.get("captureMode") === "full"
+      ? capture("normalized_chw", chw.buffer, { Width: 224, Height: 224, Dtype: "float32" })
+      : fetch(capturePath, { method: "POST", body: chw.buffer });
+    request
       .then(response => {
-        if (!response.ok) throw new Error(`输入张量导出失败：HTTP ${response.status}`);
+        if (response && !response.ok) throw new Error(`输入张量导出失败：HTTP ${response.status}`);
         log("浏览器 Canvas 输入张量已导出。");
       })
       .catch(error => log(`输入张量导出失败：${error}`));
@@ -108,19 +152,33 @@ runButton.addEventListener("click", async () => {
   const tensor = inputTensor();
   const timings = [];
   let outputs;
-  for (let i = 0; i < 11; i += 1) {
+  const runCount = Math.max(1, Number.parseInt(PARAMETERS.get("runs") || "11", 10));
+  for (let i = 0; i < runCount; i += 1) {
     const started = performance.now();
     outputs = await session.run({ image: tensor });
     timings.push(performance.now() - started);
   }
   colorize(outputs.anomaly_map.data);
-  const warm = timings.slice(1).sort((a, b) => a - b);
+  const warm = (timings.length > 1 ? timings.slice(1) : timings).sort((a, b) => a - b);
   const percentile = p => warm[Math.ceil(p * warm.length) - 1];
   log(`异常分数：${outputs.image_score.data[0].toFixed(9)}`);
-  log(`首次推理：${timings[0].toFixed(1)} ms；预热后 P50：${percentile(.5).toFixed(1)} ms；P95：${percentile(.95).toFixed(1)} ms；轮数：10`);
+  log(`首次推理：${timings[0].toFixed(1)} ms；稳定段 P50：${percentile(.5).toFixed(1)} ms；P95：${percentile(.95).toFixed(1)} ms；轮数：${runCount}`);
+  if (PARAMETERS.get("captureMode") === "full") {
+    await capture("anomaly_map", outputs.anomaly_map.data.buffer, { Width: 14, Height: 14, Dtype: "float32" });
+    await capture("image_score", new Float32Array([outputs.image_score.data[0]]).buffer, { Dtype: "float32" });
+    await capture("timings", new TextEncoder().encode(JSON.stringify({ backend: BACKEND, timings })), { Dtype: "json" });
+  }
 });
 
-window.addEventListener("error", event => log(`错误：${event.error?.stack || event.message}`));
+window.addEventListener("error", event => {
+  log(`错误：${event.error?.stack || event.message}`);
+  reportError(event.error || event.message);
+});
+
+window.addEventListener("unhandledrejection", event => {
+  log(`错误：${event.reason?.stack || event.reason}`);
+  reportError(event.reason);
+});
 
 if (new URLSearchParams(location.search).has("autorun")) {
   document.querySelector("#load").click();

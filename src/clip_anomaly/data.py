@@ -100,6 +100,61 @@ def split_records(
     return sorted(output, key=lambda item: (item.category, item.split, item.defect_type, item.image_path.name))
 
 
+def decisive_split_records(
+    records: list[SampleRecord],
+    seed: int,
+    abnormal_train_fraction: float,
+    dev_fraction: float,
+) -> list[SampleRecord]:
+    """Create deterministic train/dev/source_holdout partitions.
+
+    Original MVTec train/good images remain in train. Test normals are split
+    between dev and source_holdout. Each anomaly stratum is split three ways;
+    strata with at least three samples retain at least one dev and holdout item.
+    """
+    holdout_fraction = 1.0 - abnormal_train_fraction - dev_fraction
+    if abnormal_train_fraction <= 0 or dev_fraction <= 0 or holdout_fraction <= 0:
+        raise ValueError("train and dev fractions must leave a positive source_holdout fraction")
+
+    output: list[SampleRecord] = []
+    grouped: dict[tuple[str, str, int], list[SampleRecord]] = defaultdict(list)
+    for record in records:
+        if record.source_partition == "train":
+            output.append(replace(record, split="train"))
+        else:
+            key = (record.category, record.defect_type, record.label)
+            grouped[key].append(record)
+
+    for group_index, key in enumerate(sorted(grouped)):
+        group = sorted(grouped[key], key=lambda item: item.image_path.as_posix())
+        random.Random(seed + group_index).shuffle(group)
+        if key[2] == 0:
+            dev_count = max(1, round(len(group) * 0.5)) if len(group) > 1 else 0
+            assignments = ["dev"] * dev_count + ["source_holdout"] * (len(group) - dev_count)
+        else:
+            if len(group) < 3:
+                raise ValueError(f"Anomaly stratum {key} needs at least 3 samples for three-way split")
+            train_count = max(1, round(len(group) * abnormal_train_fraction))
+            dev_count = max(1, round(len(group) * dev_fraction))
+            if train_count + dev_count >= len(group):
+                overflow = train_count + dev_count - len(group) + 1
+                train_count = max(1, train_count - overflow)
+            holdout_count = len(group) - train_count - dev_count
+            if holdout_count < 1:
+                raise ValueError(f"Anomaly stratum {key} has no source_holdout sample")
+            assignments = (
+                ["train"] * train_count
+                + ["dev"] * dev_count
+                + ["source_holdout"] * holdout_count
+            )
+        output.extend(replace(record, split=split) for record, split in zip(group, assignments))
+
+    return sorted(
+        output,
+        key=lambda item: (item.category, item.split, item.defect_type, item.image_path.name),
+    )
+
+
 def select_limited_records(
     records: list[SampleRecord],
     seed: int,

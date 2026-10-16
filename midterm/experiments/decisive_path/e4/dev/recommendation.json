@@ -1,0 +1,19 @@
+{
+  "recommended_k": null,
+  "selection_rule": "highest dev Pixel AP among K=1/2 that satisfies per-seed FPR increase <=0.02; tie chooses lower K",
+  "candidates": [
+    {
+      "k": 1,
+      "fpr_ok": false,
+      "mean_pixel_ap": 0.7993119802291561,
+      "mean_fpr_increase": 0.0707070707070707
+    },
+    {
+      "k": 2,
+      "fpr_ok": false,
+      "mean_pixel_ap": 0.7790752837403739,
+      "mean_fpr_increase": 0.16161616161616163
+    }
+  ],
+  "random_seed_for_e4_precision": 11
+}

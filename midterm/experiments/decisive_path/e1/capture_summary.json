@@ -1,0 +1,1832 @@
+[
+  {
+    "sample_id": "00_pill_good_001",
+    "image_path": "dataset/pill/pill/test/good/001.png",
+    "backend": "webgpu",
+    "mode": "real",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "00_pill_good_001"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "00_pill_good_001"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "00_pill_good_001"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "00_pill_good_001"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "00_pill_good_001"
+      },
+      "timings": {
+        "bytes": 49,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "00_pill_good_001"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "01_pill_good_025",
+    "image_path": "dataset/pill/pill/test/good/025.png",
+    "backend": "webgpu",
+    "mode": "real",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "01_pill_good_025"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "01_pill_good_025"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "01_pill_good_025"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "01_pill_good_025"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "01_pill_good_025"
+      },
+      "timings": {
+        "bytes": 50,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "01_pill_good_025"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "02_pill_color_013",
+    "image_path": "dataset/pill/pill/test/color/013.png",
+    "backend": "webgpu",
+    "mode": "real",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "02_pill_color_013"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "02_pill_color_013"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "02_pill_color_013"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "02_pill_color_013"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "02_pill_color_013"
+      },
+      "timings": {
+        "bytes": 49,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "02_pill_color_013"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "03_pill_crack_023",
+    "image_path": "dataset/pill/pill/test/crack/023.png",
+    "backend": "webgpu",
+    "mode": "real",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "03_pill_crack_023"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "03_pill_crack_023"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "03_pill_crack_023"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "03_pill_crack_023"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "03_pill_crack_023"
+      },
+      "timings": {
+        "bytes": 50,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "03_pill_crack_023"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "04_pill_pill_type_004",
+    "image_path": "dataset/pill/pill/test/pill_type/004.png",
+    "backend": "webgpu",
+    "mode": "real",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "timings": {
+        "bytes": 37,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "04_pill_pill_type_004"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "05_screw_good_000",
+    "image_path": "dataset/screw/screw/test/good/000.png",
+    "backend": "webgpu",
+    "mode": "real",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "05_screw_good_000"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "05_screw_good_000"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "05_screw_good_000"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "05_screw_good_000"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "05_screw_good_000"
+      },
+      "timings": {
+        "bytes": 51,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "05_screw_good_000"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "06_screw_good_040",
+    "image_path": "dataset/screw/screw/test/good/040.png",
+    "backend": "webgpu",
+    "mode": "real",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "06_screw_good_040"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "06_screw_good_040"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "06_screw_good_040"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "06_screw_good_040"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "06_screw_good_040"
+      },
+      "timings": {
+        "bytes": 50,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "06_screw_good_040"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "07_screw_scratch_neck_022",
+    "image_path": "dataset/screw/screw/test/scratch_neck/022.png",
+    "backend": "webgpu",
+    "mode": "real",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "timings": {
+        "bytes": 51,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "07_screw_scratch_neck_022"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "08_screw_scratch_neck_021",
+    "image_path": "dataset/screw/screw/test/scratch_neck/021.png",
+    "backend": "webgpu",
+    "mode": "real",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "timings": {
+        "bytes": 51,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "08_screw_scratch_neck_021"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "09_screw_thread_top_005",
+    "image_path": "dataset/screw/screw/test/thread_top/005.png",
+    "backend": "webgpu",
+    "mode": "real",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "timings": {
+        "bytes": 50,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "09_screw_thread_top_005"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "00_pill_good_001",
+    "image_path": "dataset/pill/pill/test/good/001.png",
+    "backend": "webgpu",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "00_pill_good_001"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "00_pill_good_001"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "00_pill_good_001"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "00_pill_good_001"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "00_pill_good_001"
+      },
+      "timings": {
+        "bytes": 50,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "00_pill_good_001"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "01_pill_good_025",
+    "image_path": "dataset/pill/pill/test/good/025.png",
+    "backend": "webgpu",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "01_pill_good_025"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "01_pill_good_025"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "01_pill_good_025"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "01_pill_good_025"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "01_pill_good_025"
+      },
+      "timings": {
+        "bytes": 50,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "01_pill_good_025"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "02_pill_color_013",
+    "image_path": "dataset/pill/pill/test/color/013.png",
+    "backend": "webgpu",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "02_pill_color_013"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "02_pill_color_013"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "02_pill_color_013"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "02_pill_color_013"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "02_pill_color_013"
+      },
+      "timings": {
+        "bytes": 39,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "02_pill_color_013"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "03_pill_crack_023",
+    "image_path": "dataset/pill/pill/test/crack/023.png",
+    "backend": "webgpu",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "03_pill_crack_023"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "03_pill_crack_023"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "03_pill_crack_023"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "03_pill_crack_023"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "03_pill_crack_023"
+      },
+      "timings": {
+        "bytes": 50,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "03_pill_crack_023"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "04_pill_pill_type_004",
+    "image_path": "dataset/pill/pill/test/pill_type/004.png",
+    "backend": "webgpu",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "timings": {
+        "bytes": 38,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "04_pill_pill_type_004"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "05_screw_good_000",
+    "image_path": "dataset/screw/screw/test/good/000.png",
+    "backend": "webgpu",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "05_screw_good_000"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "05_screw_good_000"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "05_screw_good_000"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "05_screw_good_000"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "05_screw_good_000"
+      },
+      "timings": {
+        "bytes": 51,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "05_screw_good_000"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "06_screw_good_040",
+    "image_path": "dataset/screw/screw/test/good/040.png",
+    "backend": "webgpu",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "06_screw_good_040"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "06_screw_good_040"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "06_screw_good_040"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "06_screw_good_040"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "06_screw_good_040"
+      },
+      "timings": {
+        "bytes": 51,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "06_screw_good_040"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "07_screw_scratch_neck_022",
+    "image_path": "dataset/screw/screw/test/scratch_neck/022.png",
+    "backend": "webgpu",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "timings": {
+        "bytes": 50,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "07_screw_scratch_neck_022"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "08_screw_scratch_neck_021",
+    "image_path": "dataset/screw/screw/test/scratch_neck/021.png",
+    "backend": "webgpu",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "timings": {
+        "bytes": 50,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "08_screw_scratch_neck_021"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "09_screw_thread_top_005",
+    "image_path": "dataset/screw/screw/test/thread_top/005.png",
+    "backend": "webgpu",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "timings": {
+        "bytes": 49,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "09_screw_thread_top_005"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "00_pill_good_001",
+    "image_path": "dataset/pill/pill/test/good/001.png",
+    "backend": "wasm",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "00_pill_good_001"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "00_pill_good_001"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "00_pill_good_001"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "00_pill_good_001"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "00_pill_good_001"
+      },
+      "timings": {
+        "bytes": 48,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "00_pill_good_001"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "01_pill_good_025",
+    "image_path": "dataset/pill/pill/test/good/025.png",
+    "backend": "wasm",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "01_pill_good_025"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "01_pill_good_025"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "01_pill_good_025"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "01_pill_good_025"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "01_pill_good_025"
+      },
+      "timings": {
+        "bytes": 48,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "01_pill_good_025"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "02_pill_color_013",
+    "image_path": "dataset/pill/pill/test/color/013.png",
+    "backend": "wasm",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "02_pill_color_013"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "02_pill_color_013"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "02_pill_color_013"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "02_pill_color_013"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "02_pill_color_013"
+      },
+      "timings": {
+        "bytes": 49,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "02_pill_color_013"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "03_pill_crack_023",
+    "image_path": "dataset/pill/pill/test/crack/023.png",
+    "backend": "wasm",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "03_pill_crack_023"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "03_pill_crack_023"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "03_pill_crack_023"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "03_pill_crack_023"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "03_pill_crack_023"
+      },
+      "timings": {
+        "bytes": 35,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "03_pill_crack_023"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "04_pill_pill_type_004",
+    "image_path": "dataset/pill/pill/test/pill_type/004.png",
+    "backend": "wasm",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 2560000,
+        "width": "800",
+        "height": "800",
+        "dtype": "uint8",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "04_pill_pill_type_004"
+      },
+      "timings": {
+        "bytes": 49,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "04_pill_pill_type_004"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "05_screw_good_000",
+    "image_path": "dataset/screw/screw/test/good/000.png",
+    "backend": "wasm",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "05_screw_good_000"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "05_screw_good_000"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "05_screw_good_000"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "05_screw_good_000"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "05_screw_good_000"
+      },
+      "timings": {
+        "bytes": 49,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "05_screw_good_000"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "06_screw_good_040",
+    "image_path": "dataset/screw/screw/test/good/040.png",
+    "backend": "wasm",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "06_screw_good_040"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "06_screw_good_040"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "06_screw_good_040"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "06_screw_good_040"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "06_screw_good_040"
+      },
+      "timings": {
+        "bytes": 37,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "06_screw_good_040"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "07_screw_scratch_neck_022",
+    "image_path": "dataset/screw/screw/test/scratch_neck/022.png",
+    "backend": "wasm",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "07_screw_scratch_neck_022"
+      },
+      "timings": {
+        "bytes": 49,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "07_screw_scratch_neck_022"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "08_screw_scratch_neck_021",
+    "image_path": "dataset/screw/screw/test/scratch_neck/021.png",
+    "backend": "wasm",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "08_screw_scratch_neck_021"
+      },
+      "timings": {
+        "bytes": 37,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "08_screw_scratch_neck_021"
+      }
+    },
+    "errors": [],
+    "success": true
+  },
+  {
+    "sample_id": "09_screw_thread_top_005",
+    "image_path": "dataset/screw/screw/test/thread_top/005.png",
+    "backend": "wasm",
+    "mode": "fixed",
+    "received": [
+      "anomaly_map",
+      "decoded_rgba",
+      "image_score",
+      "normalized_chw",
+      "resized_rgb",
+      "timings"
+    ],
+    "missing": [],
+    "metadata": {
+      "decoded_rgba": {
+        "bytes": 4194304,
+        "width": "1024",
+        "height": "1024",
+        "dtype": "uint8",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "resized_rgb": {
+        "bytes": 150528,
+        "width": "224",
+        "height": "224",
+        "dtype": "uint8",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "normalized_chw": {
+        "bytes": 602112,
+        "width": "224",
+        "height": "224",
+        "dtype": "float32",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "anomaly_map": {
+        "bytes": 784,
+        "width": "14",
+        "height": "14",
+        "dtype": "float32",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "image_score": {
+        "bytes": 4,
+        "width": null,
+        "height": null,
+        "dtype": "float32",
+        "sample_id": "09_screw_thread_top_005"
+      },
+      "timings": {
+        "bytes": 47,
+        "width": null,
+        "height": null,
+        "dtype": "json",
+        "sample_id": "09_screw_thread_top_005"
+      }
+    },
+    "errors": [],
+    "success": true
+  }
+]

@@ -50,9 +50,9 @@ def train_head(
 ) -> TrainingResult:
     set_seed(seed)
     train_idx = torch.tensor([index for index, split in enumerate(splits) if split == "train"])
-    val_idx = torch.tensor([index for index, split in enumerate(splits) if split == "val"])
+    val_idx = torch.tensor([index for index, split in enumerate(splits) if split in ("val", "dev")])
     if train_idx.numel() == 0 or val_idx.numel() == 0:
-        raise ValueError("Feature cache must contain both train and val records")
+        raise ValueError("Feature cache must contain train and dev/val records")
     if head_type == "b2_text_prototype":
         model = PatchAnomalyHead(
             input_dim=features.shape[-1],

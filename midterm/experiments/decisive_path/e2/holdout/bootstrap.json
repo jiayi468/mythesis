@@ -1,0 +1,26 @@
+{
+  "42": {
+    "samples": 2000,
+    "mean": 0.7458952431498996,
+    "low": 0.6137845852901328,
+    "high": 0.8308103809388186,
+    "positive_fraction": 1.0,
+    "resolution": "14x14 patch map"
+  },
+  "123": {
+    "samples": 2000,
+    "mean": 0.7288923567572778,
+    "low": 0.5907386527927461,
+    "high": 0.8180569557041701,
+    "positive_fraction": 1.0,
+    "resolution": "14x14 patch map"
+  },
+  "2026": {
+    "samples": 2000,
+    "mean": 0.7407011282351541,
+    "low": 0.607139648432353,
+    "high": 0.8221964320195252,
+    "positive_fraction": 1.0,
+    "resolution": "14x14 patch map"
+  }
+}

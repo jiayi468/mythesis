@@ -8,15 +8,11 @@ import numpy as np
 import onnxruntime as ort
 
 from clip_anomaly.config import load_config
+from clip_anomaly.decisive import compare_arrays
 
 
 def compare_tensors(reference: np.ndarray, candidate: np.ndarray) -> dict[str, float]:
-    reference = np.asarray(reference)
-    candidate = np.asarray(candidate)
-    if reference.shape != candidate.shape:
-        raise ValueError(f"Tensor shapes differ: {reference.shape} != {candidate.shape}")
-    difference = np.abs(reference.astype(np.float64) - candidate.astype(np.float64))
-    return {"max_abs_error": float(difference.max()), "mean_abs_error": float(difference.mean())}
+    return compare_arrays(reference, candidate)
 
 
 def main() -> None:

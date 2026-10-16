@@ -1,0 +1,14 @@
+{
+  "pill:dev:1": 28,
+  "pill:dev:0": 13,
+  "pill:source_holdout:1": 29,
+  "pill:source_holdout:0": 13,
+  "pill:train:1": 84,
+  "pill:train:0": 267,
+  "screw:dev:0": 20,
+  "screw:dev:1": 25,
+  "screw:source_holdout:0": 21,
+  "screw:source_holdout:1": 23,
+  "screw:train:0": 320,
+  "screw:train:1": 71
+}

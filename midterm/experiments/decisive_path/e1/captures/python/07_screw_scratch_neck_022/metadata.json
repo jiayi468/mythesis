@@ -1,0 +1,19 @@
+{
+  "sample_id": "07_screw_scratch_neck_022",
+  "image_path": "dataset/screw/screw/test/scratch_neck/022.png",
+  "decoded_shape": [
+    1024,
+    1024,
+    4
+  ],
+  "resized_shape": [
+    224,
+    224,
+    3
+  ],
+  "normalized_shape": [
+    3,
+    224,
+    224
+  ]
+}

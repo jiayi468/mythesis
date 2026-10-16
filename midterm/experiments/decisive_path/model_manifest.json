@@ -1,0 +1,26 @@
+{
+  "models": [
+    {
+      "seed": 42,
+      "path": "midterm/experiments/decisive_path/e2/dev/b1_classifier/seed_42/checkpoints/clip_b16_patch_head.pt",
+      "sha256": "276e2ad309158fc5f98044a212ebcd3b65e06640fa3c97ddf8df9d8c3fb8fd75",
+      "best_epoch": 20,
+      "best_dev_loss": 0.7119963765144348
+    },
+    {
+      "seed": 123,
+      "path": "midterm/experiments/decisive_path/e2/dev/b1_classifier/seed_123/checkpoints/clip_b16_patch_head.pt",
+      "sha256": "3f1280bd5a58ce3e3ab025443df13c1ad8b7c73a73b39680771788980d864da2",
+      "best_epoch": 14,
+      "best_dev_loss": 0.7140547633171082
+    },
+    {
+      "seed": 2026,
+      "path": "midterm/experiments/decisive_path/e2/dev/b1_classifier/seed_2026/checkpoints/clip_b16_patch_head.pt",
+      "sha256": "97fe83dac7c231df5722e645ed3885a0eb33b4949278ca9befd0b842d1ffcbee",
+      "best_epoch": 7,
+      "best_dev_loss": 0.7113756537437439
+    }
+  ],
+  "feature_cache_sha256": "5dbf2fc723bf8c65cdf324ada52db2640d1a498453cabf896bc647faf5edb073"
+}

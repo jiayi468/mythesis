@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "criteria": {
+    "all_b1_pixel_ap_above_b0": true,
+    "mean_pixel_ap_gain_ge_0.02": true,
+    "mean_image_auroc_gain_ge_0.02": true,
+    "category_pixel_ap_gains_positive": true,
+    "bootstrap_positive_fraction_ge_0.90": true
+  },
+  "observed": {
+    "b0": {
+      "image_auroc": 0.48925339366515835,
+      "image_ap": 0.597689651094695,
+      "pixel_auroc": 0.40947084624159014,
+      "pixel_ap": 0.011705406296089764
+    },
+    "pixel_ap_gains": [
+      0.7726471241178791,
+      0.7423807836126908,
+      0.7530108890987797
+    ],
+    "image_auroc_gains": [
+      0.45644796380090497,
+      0.45588235294117646,
+      0.45305429864253405
+    ],
+    "bootstrap": {
+      "42": {
+        "samples": 2000,
+        "mean": 0.7458952431498996,
+        "low": 0.6137845852901328,
+        "high": 0.8308103809388186,
+        "positive_fraction": 1.0,
+        "resolution": "14x14 patch map"
+      },
+      "123": {
+        "samples": 2000,
+        "mean": 0.7288923567572778,
+        "low": 0.5907386527927461,
+        "high": 0.8180569557041701,
+        "positive_fraction": 1.0,
+        "resolution": "14x14 patch map"
+      },
+      "2026": {
+        "samples": 2000,
+        "mean": 0.7407011282351541,
+        "low": 0.607139648432353,
+        "high": 0.8221964320195252,
+        "positive_fraction": 1.0,
+        "resolution": "14x14 patch map"
+      }
+    }
+  },
+  "artifact_paths": [
+    "midterm/experiments/decisive_path/e2/holdout/metrics.csv",
+    "midterm/experiments/decisive_path/e2/holdout/bootstrap.json"
+  ],
+  "protocol_hash": "bdbb0a7ba826ccc4df20c9b29ab70b607c8a05e42718a046c26a9c8abbe9ccb1",
+  "git_commit": "working-tree",
+  "started_at": "2026-10-16T21:28:02.382760+08:00",
+  "completed_at": "2026-10-16T21:30:05.716656+08:00",
+  "planned": 4,
+  "succeeded": 4,
+  "failed": 0,
+  "skipped": 0,
+  "failure_reasons": []
+}

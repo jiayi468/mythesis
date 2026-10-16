@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "criteria": {
+    "oracle_pixel_ap_gain_ge_0.02": true,
+    "auto_recall_at_2_ge_0.60": true,
+    "auto_vs_random_recall_gain_ge_0.15": true,
+    "pill_and_screw_auto_above_random": true,
+    "recall_at_2_not_below_recall_at_1": true,
+    "candidate_area_le_0.40": true
+  },
+  "observed": {
+    "oracle_gain_mean_per_image_pixel_ap": 0.12235894371694456,
+    "auto_recall_at_2": 0.9429824561403509,
+    "random_recall_at_2": 0.35657894736842105
+  },
+  "artifact_paths": [
+    "midterm/experiments/decisive_path/e3/source_holdout/summary.csv",
+    "midterm/experiments/decisive_path/e3/source_holdout/candidate_recall.csv"
+  ],
+  "protocol_hash": "bdbb0a7ba826ccc4df20c9b29ab70b607c8a05e42718a046c26a9c8abbe9ccb1",
+  "git_commit": "working-tree",
+  "started_at": "2026-10-16",
+  "completed_at": "2026-10-16T21:31:54.450279+08:00",
+  "planned": 3,
+  "succeeded": 3,
+  "failed": 0,
+  "skipped": 0,
+  "failure_reasons": []
+}

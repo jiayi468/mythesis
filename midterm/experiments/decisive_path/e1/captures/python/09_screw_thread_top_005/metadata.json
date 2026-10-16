@@ -1,0 +1,19 @@
+{
+  "sample_id": "09_screw_thread_top_005",
+  "image_path": "dataset/screw/screw/test/thread_top/005.png",
+  "decoded_shape": [
+    1024,
+    1024,
+    4
+  ],
+  "resized_shape": [
+    224,
+    224,
+    3
+  ],
+  "normalized_shape": [
+    3,
+    224,
+    224
+  ]
+}

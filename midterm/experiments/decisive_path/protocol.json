@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "created_at": "2026-10-16",
+  "config_path": "configs/decisive_path.yaml",
+  "config_sha256": "747c0d2623c62f60516b4c06dc9993892d83b7f8aa295c5c76b9cc92bbfa457e",
+  "data_manifest": "midterm/experiments/decisive_path/data_manifest.json",
+  "data_manifest_sha256": "9f410151067ec72292c0b26c94129abc005d6861319cb5daf2d07ca12c1a4c2f",
+  "e1_samples": "midterm/experiments/decisive_path/e1_samples.json",
+  "e1_samples_sha256": "6a923fa7064ac71028b699976b77762ed0662e3cbf81a509e854186054466d08",
+  "git_commit": "5e281e62b288b7f8855f93a8a366eca9e4136786",
+  "git_dirty_at_freeze": true,
+  "holdout_locked": false,
+  "holdout_opened_at": "2026-10-16T21:04:59.227132+08:00",
+  "thresholds": {
+    "e1_input_mean_abs": 0.001,
+    "e1_backend_score_and_map_abs": 0.0001,
+    "e1_end_to_end_score_and_map_abs": 0.001,
+    "e2_mean_pixel_ap_gain": 0.02,
+    "e2_mean_image_auroc_gain": 0.02,
+    "e3_oracle_pixel_ap_gain": 0.02,
+    "e3_recall_at_2": 0.6,
+    "e3_random_recall_gain": 0.15,
+    "e4_pixel_ap_gain": 0.02,
+    "e4_oracle_gain_fraction": 0.4,
+    "e4_fpr_absolute_increase": 0.02
+  },
+  "selection": {
+    "main_model": "b1_classifier",
+    "auto_method": "peak_nms",
+    "recommended_k": 1,
+    "recommended_k_rule": "highest combined dev Pixel AP among K=1/2; formal FPR gate evaluated once on source_holdout",
+    "e4_random_seed": 11
+  },
+  "config": {
+    "split": {
+      "abnormal_train_fraction": 0.6,
+      "dev_fraction": 0.2
+    },
+    "model": {
+      "name": "ViT-B-16",
+      "pretrained": "openai",
+      "input_size": 224,
+      "patch_grid": 14,
+      "hidden_dim": 256,
+      "dropout": 0.1
+    },
+    "training": {
+      "epochs": 30,
+      "batch_size": 32,
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "patience": 6,
+      "focal_gamma": 2.0
+    },
+    "experiment": {
+      "name": "decisive_path",
+      "training_seeds": [
+        42,
+        123,
+        2026
+      ],
+      "bootstrap_samples": 2000,
+      "score_aggregation": "quantile_0_995",
+      "candidate": {
+        "method": "peak_nms",
+        "window_fraction": 0.35,
+        "nms_iou": 0.3,
+        "max_area_fraction": 0.4,
+        "min_instance_coverage": 0.5,
+        "tiny_mask_area_ratio_max": 0.001,
+        "small_mask_area_ratio_max": 0.01
+      },
+      "k_values": [
+        1,
+        2
+      ],
+      "random_seeds": [
+        11,
+        23,
+        37,
+        41,
+        53,
+        67,
+        79,
+        83,
+        97,
+        101,
+        113,
+        127,
+        139,
+        149,
+        163,
+        173,
+        181,
+        193,
+        197,
+        211
+      ],
+      "e4_random_seed": 11,
+      "browser": {
+        "warmup_runs": 5,
+        "measured_runs": 30
+      }
+    }
+  },
+  "code_snapshot_sha256": "bc4d5f80efbc8e3083c7cb5b4992868ef9287faaa460cd19587a27e2003b314b",
+  "model_manifest_sha256": "cf1134a005a2992bfdb0175ded8f2b4504309f47ee0d0c182769a61e2c819632",
+  "onnx_manifest_sha256": "90ba565f4bd3bac2097e0ae141c25b7766ed66a10da342d194d701d4dafecc17"
+}

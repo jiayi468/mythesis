@@ -1,0 +1,14 @@
+{
+  "os": "Windows-10-10.0.26200-SP0",
+  "python": "3.10.5 (tags/v3.10.5:f377153, Jun  6 2022, 16:14:13) [MSC v.1929 64 bit (AMD64)]",
+  "pytorch": "1.13.0+cpu",
+  "onnxruntime": "1.19.2",
+  "onnxruntime_providers": [
+    "AzureExecutionProvider",
+    "CPUExecutionProvider"
+  ],
+  "chrome_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "chrome_version": "1792032733196750000",
+  "cuda_available": false,
+  "cpu_threads": 6
+}

@@ -1,0 +1,38 @@
+{
+  "status": "FAIL",
+  "criteria": {
+    "thresholds": {
+      "input_mean_abs": 0.001,
+      "backend_score_abs": 0.0001,
+      "backend_map_mean_abs": 0.0001,
+      "end_to_end_score_abs": 0.001,
+      "end_to_end_map_mean_abs": 0.001
+    },
+    "resolution": "ISOLATED",
+    "ranking_preserved": false
+  },
+  "observed": {
+    "samples": 10,
+    "fixed_ok": false,
+    "real_ok": false,
+    "max_normalized_mean_abs": 0.01782802064095607,
+    "max_cpu_webgpu_score_abs": 1.3649463653564453e-05,
+    "max_cpu_webgpu_map_mean_abs": 1.4498009152573234e-06,
+    "max_real_webgpu_score_abs": 0.2710334062576294,
+    "max_real_webgpu_map_mean_abs": 0.04367961054705974
+  },
+  "artifact_paths": [
+    "midterm/experiments/decisive_path/e1/per_sample.csv",
+    "midterm/experiments/decisive_path/e1/capture_summary.json"
+  ],
+  "protocol_hash": "bdbb0a7ba826ccc4df20c9b29ab70b607c8a05e42718a046c26a9c8abbe9ccb1",
+  "git_commit": "working-tree",
+  "started_at": "2026-10-16T21:31:22.213824+08:00",
+  "completed_at": "2026-10-16T21:31:51.325688+08:00",
+  "planned": 10,
+  "succeeded": 10,
+  "failed": 0,
+  "skipped": 0,
+  "failure_reasons": [],
+  "resolution": "ISOLATED"
+}
